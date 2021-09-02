@@ -3,7 +3,7 @@ const express = require('express');
 
 const booksController = require('./src/controller/books');
 
-mongoose.connect('mongodb+srv://biblioteca:biblioteca@cluster0.9ff10.mongodb.net/biblioteca?retryWrites=true&w=majority', {
+mongoose.connect(process.env.ATLAS, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -14,7 +14,7 @@ app.use(express.json());
 
 const ok = 200;
 
-
+const PORT = process.env.PORT;
 
 app.get('/', (_req, res) => {
   res.status(ok).send(
@@ -27,4 +27,4 @@ app.get('/', (_req, res) => {
 app.use('/books', booksController);
 /* app.use('/sales', salesController); */
 
-app.listen('3333', () => console.log('O pai ta on!'));
+app.listen(PORT, () => console.log('O pai ta on!'));
