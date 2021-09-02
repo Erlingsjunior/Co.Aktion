@@ -3,7 +3,7 @@ const express = require('express');
 
 const booksController = require('./src/controller/books');
 
-mongoose.connect(process.env.ATLAS, {
+mongoose.connect(process.env.ATALAS, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
