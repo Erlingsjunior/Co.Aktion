@@ -13,7 +13,7 @@ mongoose.connect(process.env.ATLAS, {
 
 const app = express();
 
-app._router.use(cors());
+app.use(cors());
 app.use(express.json());
 
 
