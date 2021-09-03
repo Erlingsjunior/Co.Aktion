@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const cors =  require('cors')
 require('dotenv').config();
 
 const booksController = require('./src/controller/books');
-
-console.log(process.env.ATLAS)
 
 mongoose.connect(process.env.ATLAS, {
     useNewUrlParser: true,
@@ -13,7 +12,9 @@ mongoose.connect(process.env.ATLAS, {
 
 const app = express();
 
+app._router.use(cors());
 app.use(express.json());
+
 
 const ok = 200;
 
