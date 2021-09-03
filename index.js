@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const express = require('express');
+require('dotenv').config();
 
 const booksController = require('./src/controller/books');
 
-mongoose.connect(process.env.ATALAS, {
+console.log(process.env.ATLAS)
+
+mongoose.connect(process.env.ATLAS, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
